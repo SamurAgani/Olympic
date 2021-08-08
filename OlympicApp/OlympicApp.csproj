@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7798085A-1831-43A2-8686-CD5AAF46D512}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OlympicApp</RootNamespace>
+    <AssemblyName>OlympicApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=0ffbc31322e9d308, processorArchitecture=MSIL">
+      <HintPath>packages\MvvmLightLibsStd10.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MvvmLightLibsStd10.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.0.2422, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignColors.2.0.0\lib\net452\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.0.0.2422, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignThemes.4.0.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=5.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>packages\SimpleInjector.5.3.0\lib\net461\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\MvvmLightLibsStd10.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Messages\SportMessage.cs" />
+    <Compile Include="Messages\ViewChange.cs" />
+    <Compile Include="Migrations\202103190744057_OltpicHasCreated.cs" />
+    <Compile Include="Migrations\202103190744057_OltpicHasCreated.designer.cs">
+      <DependentUpon>202103190744057_OltpicHasCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103190940126_AddStageToAthlet.cs" />
+    <Compile Include="Migrations\202103190940126_AddStageToAthlet.designer.cs">
+      <DependentUpon>202103190940126_AddStageToAthlet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103191636269_addAthletToCh.cs" />
+    <Compile Include="Migrations\202103191636269_addAthletToCh.designer.cs">
+      <DependentUpon>202103191636269_addAthletToCh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103191638212_AddAthletList.cs" />
+    <Compile Include="Migrations\202103191638212_AddAthletList.designer.cs">
+      <DependentUpon>202103191638212_AddAthletList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103200654557_ImagePathAdd.cs" />
+    <Compile Include="Migrations\202103200654557_ImagePathAdd.designer.cs">
+      <DependentUpon>202103200654557_ImagePathAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103210953194_FlagPath.cs" />
+    <Compile Include="Migrations\202103210953194_FlagPath.designer.cs">
+      <DependentUpon>202103210953194_FlagPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103221721368_ForTeamAdded.cs" />
+    <Compile Include="Migrations\202103221721368_ForTeamAdded.designer.cs">
+      <DependentUpon>202103221721368_ForTeamAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103221820226_TOrOwnAdd.cs" />
+    <Compile Include="Migrations\202103221820226_TOrOwnAdd.designer.cs">
+      <DependentUpon>202103221820226_TOrOwnAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103221830240_WinnerAdd.cs" />
+    <Compile Include="Migrations\202103221830240_WinnerAdd.designer.cs">
+      <DependentUpon>202103221830240_WinnerAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103221950084_Opposite.cs" />
+    <Compile Include="Migrations\202103221950084_Opposite.designer.cs">
+      <DependentUpon>202103221950084_Opposite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103221955308_asdas.cs" />
+    <Compile Include="Migrations\202103221955308_asdas.designer.cs">
+      <DependentUpon>202103221955308_asdas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103230725450_deletename.cs" />
+    <Compile Include="Migrations\202103230725450_deletename.designer.cs">
+      <DependentUpon>202103230725450_deletename.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103240654293_SecondAndThirdAdded.cs" />
+    <Compile Include="Migrations\202103240654293_SecondAndThirdAdded.designer.cs">
+      <DependentUpon>202103240654293_SecondAndThirdAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103241405341_FlagPathAdded.cs" />
+    <Compile Include="Migrations\202103241405341_FlagPathAdded.designer.cs">
+      <DependentUpon>202103241405341_FlagPathAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103251056385_asdasdksksksks.cs" />
+    <Compile Include="Migrations\202103251056385_asdasdksksksks.designer.cs">
+      <DependentUpon>202103251056385_asdasdksksksks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103291212597_ssasasasaz.cs" />
+    <Compile Include="Migrations\202103291212597_ssasasasaz.designer.cs">
+      <DependentUpon>202103291212597_ssasasasaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103291306355_asdasdaa.cs" />
+    <Compile Include="Migrations\202103291306355_asdasdaa.designer.cs">
+      <DependentUpon>202103291306355_asdasdaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\OppositeTeams.cs" />
+    <Compile Include="Model\RaceForTeam.cs" />
+    <Compile Include="Model\StageForTeam.cs" />
+    <Compile Include="Model\TeamOrOwn.cs" />
+    <Compile Include="Repository\OlympicDB.cs" />
+    <Compile Include="Service\GetImagePathes.cs" />
+    <Compile Include="Service\ReadWithDapper.cs" />
+    <Compile Include="ViewModel\AthletsVM.cs" />
+    <Compile Include="ViewModel\BestOfVM.cs" />
+    <Compile Include="ViewModel\InfoSportVM.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\OwnRaceVM.cs" />
+    <Compile Include="ViewModel\ResultVM.cs" />
+    <Compile Include="ViewModel\SportsVM.cs" />
+    <Compile Include="ViewModel\TeamNocVM.cs" />
+    <Compile Include="ViewModel\TeamRaceResultVM.cs" />
+    <Compile Include="ViewModel\TeamStageVM.cs" />
+    <Compile Include="ViewModel\TeamVSTeamVM.cs" />
+    <Compile Include="View\AthletInfo.xaml.cs">
+      <DependentUpon>AthletInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AthletsUC.xaml.cs">
+      <DependentUpon>AthletsUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BestOfUC.xaml.cs">
+      <DependentUpon>BestOfUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CountryInfo.xaml.cs">
+      <DependentUpon>CountryInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InfoSportUC.xaml.cs">
+      <DependentUpon>InfoSportUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OwnRaceView.xaml.cs">
+      <DependentUpon>OwnRaceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ResultUC.xaml.cs">
+      <DependentUpon>ResultUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SportUC.xaml.cs">
+      <DependentUpon>SportUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TeamNocUC.xaml.cs">
+      <DependentUpon>TeamNocUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TeamRaceResult.xaml.cs">
+      <DependentUpon>TeamRaceResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TeamSatgeView.xaml.cs">
+      <DependentUpon>TeamSatgeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TeamVSTeam.xaml.cs">
+      <DependentUpon>TeamVSTeam.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\AthletInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AthletsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BestOfUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CountryInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InfoSportUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OwnRaceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ResultUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SportUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TeamNocUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TeamRaceResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TeamSatgeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TeamVSTeam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Athlet.cs" />
+    <Compile Include="Model\Country.cs" />
+    <Compile Include="Model\Gender.cs" />
+    <Compile Include="Model\Medal.cs" />
+    <Compile Include="Model\MedalType.cs" />
+    <Compile Include="Model\Race.cs" />
+    <Compile Include="Model\RaceDegree.cs" />
+    <Compile Include="Model\Sport.cs" />
+    <Compile Include="Model\SportCathegory.cs" />
+    <Compile Include="Model\Stage.cs" />
+    <Compile Include="Model\Team.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Migrations\202103190744057_OltpicHasCreated.resx">
+      <DependentUpon>202103190744057_OltpicHasCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103190940126_AddStageToAthlet.resx">
+      <DependentUpon>202103190940126_AddStageToAthlet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103191636269_addAthletToCh.resx">
+      <DependentUpon>202103191636269_addAthletToCh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103191638212_AddAthletList.resx">
+      <DependentUpon>202103191638212_AddAthletList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103200654557_ImagePathAdd.resx">
+      <DependentUpon>202103200654557_ImagePathAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103210953194_FlagPath.resx">
+      <DependentUpon>202103210953194_FlagPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103221721368_ForTeamAdded.resx">
+      <DependentUpon>202103221721368_ForTeamAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103221820226_TOrOwnAdd.resx">
+      <DependentUpon>202103221820226_TOrOwnAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103221830240_WinnerAdd.resx">
+      <DependentUpon>202103221830240_WinnerAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103221950084_Opposite.resx">
+      <DependentUpon>202103221950084_Opposite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103221955308_asdas.resx">
+      <DependentUpon>202103221955308_asdas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103230725450_deletename.resx">
+      <DependentUpon>202103230725450_deletename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103240654293_SecondAndThirdAdded.resx">
+      <DependentUpon>202103240654293_SecondAndThirdAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103241405341_FlagPathAdded.resx">
+      <DependentUpon>202103241405341_FlagPathAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103251056385_asdasdksksksks.resx">
+      <DependentUpon>202103251056385_asdasdksksksks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103291212597_ssasasasaz.resx">
+      <DependentUpon>202103291212597_ssasasasaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103291306355_asdasdaa.resx">
+      <DependentUpon>202103291306355_asdasdaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\AthletBack.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Image\AthletBackO.jpg" />
+    <Content Include="Image\Background\bg.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\BackOlyimpic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\CountryBack.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\GoodBackOly.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\Sports\archery.jfif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\Sports\athletics.jfif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\Sports\swimming.jfif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\Sports\wf.jfif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

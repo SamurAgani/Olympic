@@ -1,0 +1,95 @@
+﻿<Window x:Class="OlympicApp.View.TeamRaceResult"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OlympicApp.View"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+
+        mc:Ignorable="d"
+        Title="TeamRaceResult" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="{Binding Back}"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.4*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Label Foreground="White" VerticalAlignment="Center" Margin="4" FontSize="24" Content="Cathegory:"/>
+                <Label Foreground="White" VerticalAlignment="Center" Margin="4" FontSize="24" Content="{Binding Race.SportCathegory.Name}"/>
+                <Label Foreground="White" VerticalAlignment="Center" Margin="4" FontSize="24" Content="Team Cathegory"/>
+            </StackPanel >
+            <ListBox SelectedIndex="{Binding St}" Grid.Row="1" ItemsSource="{Binding Race.Team}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Viewbox>
+                            <ListBox ItemsSource="{Binding OppositeTeams}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Margin="25,5,25,5">
+                                            <Image Margin="3" Width="30" Source="{Binding Team1.FlagPath}"  />
+                                            <TextBlock Foreground="White" Text="{Binding Team1.Country.Name}" FontSize="18"/>
+                                            <Label Content="VS"/>
+                                            <Image Margin="3" Width="30" Source="{Binding Team2.FlagPath}"  />
+                                            <TextBlock Foreground="White" Text="{Binding Team2.Country.Name}" FontSize="18"/>
+                  
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Margin="5" Orientation="Horizontal" IsItemsHost="True"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                        </Viewbox>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseDoubleClick">
+                                        <i:InvokeCommandAction Command="{Binding SelectCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+            </ListBox>
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+
+            <StackPanel Margin="3" Orientation="Horizontal" >
+                <StackPanel>
+                    <Image Margin="4" Width="170" Source="{Binding Winner.FlagPath}"/>
+                    <Label Foreground="White" FontSize="20" Margin="4" Width="170" Content="{Binding Winner.Country.Name}"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Foreground="Yellow" Content="🥇 Gold"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Margin="3" Orientation="Horizontal" >
+                <StackPanel>
+                    <Image Margin="4" Width="170" Source="{Binding Second.FlagPath}"/>
+                    <Label Foreground="White" FontSize="20" Margin="4" Width="170" Content="{Binding Second.Country.Name}"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Foreground="Silver" Content="🥇 Silver"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Margin="3" Orientation="Horizontal" >
+                <StackPanel>
+                    <Image Margin="4" Width="170" Source="{Binding Third.FlagPath}"/>
+                    <Label Foreground="White" FontSize="20" Margin="4" Width="170" Content="{Binding Third.Country.Name}"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Foreground="Brown" Content="🥇 Bronze"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

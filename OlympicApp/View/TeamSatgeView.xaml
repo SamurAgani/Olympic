@@ -1,0 +1,41 @@
+﻿<Window x:Class="OlympicApp.View.TeamSatgeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OlympicApp.View"
+        mc:Ignorable="d"
+                xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+
+        Title="TeamSatgeView" Height="450" Width="800">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="{Binding Back}"/>
+        </Grid.Background>
+        <Label Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Content="{Binding Time}"/>
+        <ListBox SelectedItem="{Binding OppositeTeam}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" ItemsSource="{Binding OppositeTeams}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="25,5,25,5">
+                        <TextBlock Foreground="White" Text="{Binding Team1.Country.Name}" FontSize="25"/>
+                        <Image Margin="3" Width="120" Source="{Binding Team1.FlagPath}"  />
+                       
+                        <Label VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center" Foreground="Red" Content="VS"/>
+                        <Image Margin="3" Width="120" Source="{Binding Team2.FlagPath}"  />
+                        <TextBlock Foreground="White" Text="{Binding Team2.Country.Name}" FontSize="25"/>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding SelectCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+    </Grid>
+</Window>
